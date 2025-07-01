@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blossom Haven | Floral Elegance</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Blossom Haven</div>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#shop" class="nav-link">Shop</a></li>
+                <li><a href="#collections" class="nav-link">Collections</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li class="cart-icon">
+                    <a href="#cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count">0</span>
+                    </a>
+                    <div class="mini-cart" id="miniCart">
+                        <div class="mini-cart-items" id="miniCartItems">
+                            <p>Your cart is empty</p>
+                        </div>
+                        <div class="mini-cart-total">
+                            Total: <span id="miniCartTotal">PKR 0</span>
+                        </div>
+                        <button class="btn" id="viewFullCart">View Full Cart</button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section class="section home-section" id="home">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>Floral Elegance for Every Occasion</h1>
+                    <p>Handcrafted bouquets with the freshest seasonal blooms</p>
+                    <button class="btn" id="shopBtn">Shop Collection</button>
+                    <button class="btn btn-secondary" id="collectionsBtn">View Collections</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop Section -->
+        <section class="section shop-section" id="shop" style="display:none;">
+            <h2 class="section-title">Our Signature Blooms</h2>
+            <div class="flower-categories">
+                <button class="category-btn active" data-category="all">All Flowers</button>
+                <button class="category-btn" data-category="bouquet">Bouquets</button>
+                <button class="category-btn" data-category="premium">Premium</button>
+                <button class="category-btn" data-category="seasonal">Seasonal</button>
+            </div>
+            <div class="flowers-grid" id="flowersGrid"></div>
+        </section>
+
+        <!-- Collections Section -->
+        <section class="section collections-section" id="collections" style="display:none;">
+            <h2 class="section-title">Bouquet Collections</h2>
+            <div class="collections-grid" id="collectionsGrid"></div>
+        </section>
+
+        <!-- About Section -->
+        <section class="section about-section" id="about" style="display:none;">
+            <div class="about-content">
+                <h2 class="section-title">Our Story</h2>
+                <div class="about-text">
+                    <p>Blossom Haven began in 2025 as a small flower stall in the local market. Founded by two friends, passionate florists with vision to bring artisanal floral designs to everyday life, our shop has grown into a beloved destination for flower enthusiasts.</p>
+                    <p>We specialize in seasonal, sustainably-sourced flowers arranged by our team of expert florists. Each bouquet is handcrafted with care and attention to detail, ensuring every arrangement tells its own beautiful story.</p>
+                    <p>Visit our website and explore our online collections - where every petal is placed with purpose and every stem tells a story.</p>
+                </div>
+                <div class="about-image">
+                    <img src="images/about.jpeg" alt="Our flower shop">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="section contact-section" id="contact" style="display:none;">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Details</h3>
+                    <p><i class="fas fa-phone"></i> 0336 9197004</p>
+                    <p><i class="fas fa-envelope"></i> hello@blossomhaven.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Flower Street, Green Valley</p>
+                    <h3>Opening Hours</h3>
+                    <p>Monday-Friday: 9am - 7pm</p>
+                    <p>Saturday: 10am - 5pm</p>
+                    <p>Sunday: Closed</p>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Your Phone">
+                    <textarea placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section class="section cart-section" id="cart" style="display:none;">
+            <h2 class="section-title">Your Cart</h2>
+            <div class="cart-items" id="cartItems">
+                <p class="empty-cart">Your cart is empty</p>
+            </div>
+            <div class="cart-total">
+                Total: <span id="cartTotal">PKR 0</span>
+            </div>
+            <div class="checkout-form" id="checkoutForm">
+                <h3>Shipping Information</h3>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Phone Number" required>
+                <textarea placeholder="Full Address" required></textarea>
+                <input type="text" placeholder="City" required>
+                <input type="text" placeholder="Postal Code" required>
+            </div>
+            <div class="cart-actions">
+                <button class="btn" id="continueShopping">Continue Shopping</button>
+                <button class="btn btn-secondary" id="checkoutBtn">Proceed to Checkout</button>
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal">
+                <span class="close-modal" id="closeModal"><i class="fas fa-times"></i></span>
+                <div class="modal-content" id="modalContent"></div>
+            </div>
+        </div>
+
+        <!-- Policy Modals -->
+        <div class="policy-modal" id="deliveryInfoModal">
+            <div class="policy-content">
+                <h3>Delivery Information</h3>
+                <p>We offer same-day delivery for orders placed before 2pm within city limits. Our delivery fee is PKR 300 for standard delivery (3-5 business days) and PKR 600 for express delivery (1-2 business days).</p>
+                <p>All deliveries include careful handling and a handwritten note. Recipient will receive an SMS notification upon delivery.</p>
+                <button class="close-policy">Close</button>
+            </div>
+        </div>
+
+        <div class="policy-modal" id="returnPolicyModal">
+            <div class="policy-content">
+                <h3>Returns Policy</h3>
+                <p>Due to the perishable nature of our products, we cannot accept returns of fresh flowers. However, if you're unsatisfied with your arrangement, please contact us within 24 hours of delivery for a replacement or store credit.</p>
+                <p>For non-perishable items (vases, gifts), returns are accepted within 7 days with original packaging.</p>
+                <button class="close-policy">Close</button>
+            </div>
+        </div>
+
+        <div class="policy-modal" id="privacyPolicyModal">
+            <div class="policy-content">
+                <h3>Privacy Policy</h3>
+                <p>We collect personal information only to process your orders and improve your shopping experience. Your data is never shared with third parties without consent.</p>
+                <p>We use secure payment processing and encrypt all sensitive information. You may request account deletion or data access at any time by contacting us.</p>
+                <button class="close-policy">Close</button>
+            </div>
+        </div>
+
+        <div class="policy-modal" id="termsConditionsModal">
+            <div class="policy-content">
+                <h3>Terms & Conditions</h3>
+                <p>By placing an order, you agree to our terms. Prices are subject to change based on flower market availability. We reserve the right to substitute flowers of equal or greater value if necessary.</p>
+                <p>All content on this site is property of Blossom Haven and may not be reproduced without permission.</p>
+                <button class="close-policy">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#" id="deliveryInfo">Delivery Information</a></li>
+                    <li><a href="#" id="returnPolicy">Returns Policy</a></li>
+                    <li><a href="#" id="privacyPolicy">Privacy Policy</a></li>
+                    <li><a href="#" id="termsConditions">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <p>Subscribe to our newsletter</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address">
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Blossom Haven. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
